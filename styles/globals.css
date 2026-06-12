@@ -37,6 +37,12 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   background: var(--color-void);
   color: var(--color-ink);
@@ -83,10 +89,20 @@ body {
   background-size: 72px 72px;
 }
 
-/* --- Masque de fondu horizontal (timeline sans fin) -------------- */
-.fade-right {
-  -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
-  mask-image: linear-gradient(to right, black 70%, transparent 100%);
+/* --- Masque de fondu horizontal (timeline sans fin, desktop only) -- */
+@media (min-width: 768px) {
+  .md-fade-right {
+    -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
+    mask-image: linear-gradient(to right, black 70%, transparent 100%);
+  }
+}
+
+/* --- Garde-fou : aucune section ne déborde horizontalement ---------- */
+section {
+  max-width: 100%;
+}
+section * {
+  min-width: 0;
 }
 
 /* --- Barre de saturation (The Wall) ------------------------------ */

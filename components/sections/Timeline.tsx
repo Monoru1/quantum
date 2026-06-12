@@ -25,7 +25,12 @@ export default function Timeline() {
   useLayoutEffect(() => {
     if (reduced || !section.current || !track.current) return;
 
-    const ctx = gsap.context(() => {
+    // Correctif mobile : le défilement horizontal épinglé ne doit exister
+    // qu'en desktop. Sur mobile la piste est verticale — appliquer un
+    // translateX provoquait un débordement horizontal.
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
       const distance = () =>
         track.current!.scrollWidth - window.innerWidth + 120;
 
@@ -41,16 +46,16 @@ export default function Timeline() {
           invalidateOnRefresh: true,
         },
       });
-    }, section);
+    });
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, [reduced]);
 
   return (
     <section
       id="timeline"
       ref={section}
-      className="relative overflow-hidden py-24 md:h-svh md:py-0"
+      className="relative w-full max-w-full overflow-hidden py-24 md:h-svh md:py-0"
     >
       <div className="mx-auto flex h-full max-w-none flex-col justify-center">
         <div className="mx-auto w-full max-w-6xl px-6">
@@ -59,7 +64,7 @@ export default function Timeline() {
         </div>
 
         {/* Piste horizontale — fondu à droite : l'horizon n'a pas de fin */}
-        <div className="fade-right mt-16 overflow-hidden md:overflow-visible">
+        <div className="md-fade-right mt-16 max-w-full overflow-hidden md:overflow-visible">
           <div
             ref={track}
             className="flex flex-col gap-10 px-6 md:flex-row md:gap-0 md:pl-[max(1.5rem,calc((100vw-72rem)/2))]"
@@ -67,7 +72,7 @@ export default function Timeline() {
             {TIMELINE.phases.map((phase, i) => (
               <article
                 key={phase.phase}
-                className="relative shrink-0 md:w-[420px] md:pr-16"
+                className="relative w-full min-w-0 max-w-full break-words md:w-[420px] md:shrink-0 md:pr-16"
               >
                 {/* Ligne d'horizon */}
                 <div className="absolute left-0 right-0 top-[7px] hidden h-px bg-gradient-to-r from-(--color-cherenkov)/60 to-(--color-cherenkov)/10 md:block" />

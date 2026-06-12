@@ -55,7 +55,7 @@ export const VISION = {
 
 // --- Section : LE DISTRICT -------------------------------------------
 export const DISTRICT = {
-  eyebrow: "03 / THE DISTRICT",
+  eyebrow: "05 / THE DISTRICT",
   title: "Not a campus. A city built for scientific acceleration.",
   body: "Research, energy, manufacturing, education and life — engineered as one continuous system.",
   sectors: [
@@ -75,7 +75,7 @@ export const DISTRICT = {
 
 // --- Section : L'ARCHITECTURE ----------------------------------------
 export const ARCHITECTURE = {
-  eyebrow: "04 / THE ARCHITECTURE",
+  eyebrow: "06 / THE ARCHITECTURE",
   title: "Seven layers. One direction: upward.",
   layers: [
     { name: "Planetary Infrastructure", desc: "Land, fiber, orbit." },
@@ -90,7 +90,7 @@ export const ARCHITECTURE = {
 
 // --- Section : INDUSTRIES --------------------------------------------
 export const INDUSTRIES = {
-  eyebrow: "05 / INDUSTRIES OF TOMORROW",
+  eyebrow: "07 / INDUSTRIES OF TOMORROW",
   scenes: [
     {
       name: "Finance",
@@ -133,7 +133,7 @@ export const INDUSTRIES = {
 
 // --- Section : TIMELINE -----------------------------------------------
 export const TIMELINE = {
-  eyebrow: "06 / THE FUTURE TIMELINE",
+  eyebrow: "09 / THE FUTURE TIMELINE",
   title: "A journey, not a roadmap.",
   phases: [
     { phase: "PHASE I", name: "Intelligence", desc: "Foundation systems for reasoning at scale." },
@@ -161,9 +161,73 @@ export const FINAL = {
   cta: "ENTER THE FUTURE",
 };
 
+
+// --- Section : QUANTUM SIMULATION (démo interactive) ------------------
+export const SIMULATION = {
+  eyebrow: "03 / QUANTUM SIMULATION",
+  title: "One qubit. Every possibility at once.",
+  body: "A classical bit is 0 or 1. A qubit exists in a superposition of both — until it is measured. Prepare a state, run the measurement, watch probability become reality.",
+  hint: "Each run collapses the superposition according to its probability amplitudes. Same state, different outcomes — that is quantum mechanics, not randomness in the engineering.",
+};
+
+// --- Section : SCIENTIFIC INTELLIGENCE ---------------------------------
+export const INTELLIGENCE = {
+  eyebrow: "04 / SCIENTIFIC INTELLIGENCE",
+  title: "Five capabilities. One integrated stack.",
+  body: "QUANTUM concentrates its research on the layers where computation compounds: each capability feeds the next.",
+  capabilities: [
+    {
+      tag: "QC",
+      name: "Quantum Computing",
+      desc: "Algorithms and error-corrected architectures targeting problems with exponential classical cost — chemistry, materials, cryptanalysis.",
+    },
+    {
+      tag: "AI",
+      name: "Artificial Intelligence",
+      desc: "Foundation models specialized for scientific reasoning, trained to propose, critique and rank hypotheses before any experiment runs.",
+    },
+    {
+      tag: "SIM",
+      name: "Scientific Simulation",
+      desc: "High-fidelity digital twins of physical systems — from plasma states to protein dynamics — validated against experimental data.",
+    },
+    {
+      tag: "OPT",
+      name: "Optimization",
+      desc: "Hybrid quantum-classical solvers for logistics, energy grids and portfolio-scale combinatorial problems measured in billions of variables.",
+    },
+    {
+      tag: "PQC",
+      name: "Post-Quantum Cybersecurity",
+      desc: "Migration tooling and lattice-based cryptography deployed before large-scale quantum machines make current standards obsolete.",
+    },
+  ],
+};
+
+// --- Section : WHY QUANTUM MATTERS --------------------------------------
+export const WHY = {
+  eyebrow: "08 / WHY QUANTUM MATTERS",
+  title: "Why Quantum Matters",
+  pillars: [
+    {
+      name: "Scientific Acceleration",
+      desc: "Compressing decade-long discovery cycles into years. The bottleneck of modern science is computation — removing it changes the rate of progress itself.",
+    },
+    {
+      name: "Industrial Optimization",
+      desc: "Single-digit efficiency gains in energy, logistics and manufacturing represent hundreds of billions in value. Quantum-grade optimization targets the problems classical solvers abandon.",
+    },
+    {
+      name: "Sovereign Infrastructure",
+      desc: "Compute is strategic territory. Nations and institutions that own the next computational layer will not rent their future from those who do.",
+    },
+  ],
+};
+
 export const NAV_LINKS = [
   { label: "The Wall", href: "#problem" },
   { label: "Vision", href: "#vision" },
+  { label: "Simulation", href: "#simulation" },
   { label: "District", href: "#district" },
   { label: "Architecture", href: "#architecture" },
   { label: "Industries", href: "#industries" },
