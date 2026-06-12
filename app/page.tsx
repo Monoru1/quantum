@@ -16,6 +16,7 @@ import District from "@/components/sections/District";
 import Architecture from "@/components/sections/Architecture";
 import Industries from "@/components/sections/Industries";
 import WhyQuantum from "@/components/sections/WhyQuantum";
+import InvestorBrief from "@/components/sections/InvestorBrief";
 import Timeline from "@/components/sections/Timeline";
 import Final from "@/components/sections/Final";
 
@@ -32,6 +33,7 @@ export default function Home() {
       <Architecture />
       <Industries />
       <WhyQuantum />
+      <InvestorBrief />
       <Timeline />
       <Final />
       <Footer />

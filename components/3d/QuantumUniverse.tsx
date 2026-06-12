@@ -13,7 +13,12 @@ import { useMemo, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
-const COUNT = 12000;
+// Optimisation mobile : moitié moins de particules, DPR plafonné
+const IS_MOBILE =
+  typeof window !== "undefined" &&
+  window.matchMedia("(max-width: 767px)").matches;
+const COUNT = IS_MOBILE ? 6000 : 12000;
+const MAX_DPR = IS_MOBILE ? 1.5 : 2;
 
 // --- Vertex shader : positions = mélange animé de trois géométries ---
 const vertexShader = /* glsl */ `
@@ -139,7 +144,7 @@ function Particles({ intensity = 1, revealDuration = 4 }: UniverseProps) {
       uTime: { value: 0 },
       uReveal: { value: 0 },
       uMouse: { value: new THREE.Vector2(0, 0) },
-      uPixelRatio: { value: Math.min(gl.getPixelRatio(), 2) },
+      uPixelRatio: { value: Math.min(gl.getPixelRatio(), MAX_DPR) },
       uIntensity: { value: intensity },
     }),
     [gl, intensity]
@@ -183,7 +188,7 @@ export default function QuantumUniverse(props: UniverseProps) {
     <Canvas
       camera={{ position: [0, 0, 7], fov: 55 }}
       gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
-      dpr={[1, 2]}
+      dpr={[1, MAX_DPR]}
       className="!absolute inset-0"
     >
       <Particles {...props} />

@@ -123,11 +123,34 @@ section * {
   animation: flow-down 3.2s linear infinite;
 }
 
+/* --- Aurora générative (visuels premium sans images) --------------- */
+@keyframes aurora-drift {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+.aurora {
+  position: absolute;
+  inset: -30%;
+  pointer-events: none;
+  filter: blur(70px);
+  opacity: 0.5;
+  background:
+    conic-gradient(from 90deg at 60% 40%,
+      transparent 0deg,
+      rgba(77, 124, 255, 0.18) 80deg,
+      transparent 160deg,
+      rgba(180, 124, 255, 0.14) 240deg,
+      transparent 330deg);
+  animation: aurora-drift 38s linear infinite;
+}
+
 /* --- Accessibilité : mouvement réduit ----------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .bar-alarm,
-  .energy-flow {
+  .energy-flow,
+  .aurora {
     animation: none;
   }
 }

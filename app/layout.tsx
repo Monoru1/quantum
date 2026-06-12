@@ -60,6 +60,9 @@ export const metadata: Metadata = {
     title: `${SITE.name} — ${SITE.tagline}`,
     description: "The future will not be discovered. It will be engineered.",
   },
+  alternates: { canonical: "/" },
+  applicationName: SITE.name,
+  category: "technology",
   robots: { index: true, follow: true },
 };
 

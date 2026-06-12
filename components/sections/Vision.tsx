@@ -34,7 +34,7 @@ export default function Vision() {
           {/* La sphère interactive */}
           <Reveal className="relative h-[420px] md:h-[560px]">
             <VisionSphere />
-            <p className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.3em] text-(--color-ink-dim)/60">
+            <p className="pointer-events-none absolute bottom-3 left-1/2 hidden -translate-x-1/2 font-mono md:block text-[10px] tracking-[0.3em] text-(--color-ink-dim)/60">
               DRAG TO ROTATE — SCROLL TO ZOOM
             </p>
           </Reveal>

@@ -13,6 +13,12 @@ import { OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
 import { VISION } from "@/data/content";
 
+// Sur mobile/tactile : OrbitControls capturait le geste de scroll.
+// On desactive l'interaction et on active la rotation automatique.
+const IS_TOUCH =
+  typeof window !== "undefined" &&
+  window.matchMedia("(pointer: coarse)").matches;
+
 const NODE_COUNT = 420;
 const RADIUS = 2.2;
 const LINK_DIST = 0.78;
@@ -140,10 +146,12 @@ export default function VisionSphere() {
       <NetworkSphere />
       <OrbitControls
         enablePan={false}
-        enableZoom
+        enableZoom={!IS_TOUCH}
+        enableRotate={!IS_TOUCH}
         minDistance={3}
         maxDistance={8}
-        autoRotate={false}
+        autoRotate={IS_TOUCH}
+        autoRotateSpeed={0.6}
         rotateSpeed={0.5}
       />
     </Canvas>

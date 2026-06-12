@@ -133,7 +133,7 @@ export const INDUSTRIES = {
 
 // --- Section : TIMELINE -----------------------------------------------
 export const TIMELINE = {
-  eyebrow: "09 / THE FUTURE TIMELINE",
+  eyebrow: "10 / THE FUTURE TIMELINE",
   title: "A journey, not a roadmap.",
   phases: [
     { phase: "PHASE I", name: "Intelligence", desc: "Foundation systems for reasoning at scale." },
@@ -222,6 +222,20 @@ export const WHY = {
       desc: "Compute is strategic territory. Nations and institutions that own the next computational layer will not rent their future from those who do.",
     },
   ],
+};
+
+// --- Section : INVESTOR BRIEF -------------------------------------------
+export const INVESTOR = {
+  eyebrow: "09 / INVESTOR BRIEF",
+  title: "Built as infrastructure. Financed as conviction.",
+  body: "QUANTUM is structured for long-horizon capital: a phased program where each phase de-risks the next and produces standalone commercial value.",
+  facts: [
+    { label: "STAGE", value: "Phase I — Intelligence", note: "Foundation systems in active development." },
+    { label: "MODEL", value: "Infrastructure + Licensing", note: "Compute capacity, capability licensing, sovereign deployments." },
+    { label: "PROGRAMS", value: "5 capability tracks", note: "QC · AI · Simulation · Optimization · PQC." },
+    { label: "HORIZON", value: "8 phases", note: "Each phase independently monetizable." },
+  ],
+  cta: { label: "REQUEST THE FULL BRIEF", href: "mailto:contact@arcanum-labs.homes?subject=QUANTUM%20Investor%20Brief" },
 };
 
 export const NAV_LINKS = [
