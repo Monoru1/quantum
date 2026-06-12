@@ -1,0 +1,117 @@
+/* ============================================================
+   QUANTUM — Feuille de style globale
+   Tailwind CSS v4 (approche CSS-first avec @theme)
+   ============================================================ */
+
+@import "tailwindcss";
+
+@theme {
+  /* --- Palette ------------------------------------------------
+     void      : noir bleuté profond (jamais de noir pur)
+     cherenkov : bleu radiation Cherenkov — énergie principale
+     photon    : violet photonique — second spectre
+     fusion    : blanc-or — réservé au message final
+     alarm     : rouge — section "The Wall" uniquement
+  ------------------------------------------------------------- */
+  --color-void: #02030a;
+  --color-void-2: #060920;
+  --color-cherenkov: #4d7cff;
+  --color-photon: #b47cff;
+  --color-fusion: #f5e9c8;
+  --color-alarm: #ff4d5e;
+  --color-ink: #e6e9f5;
+  --color-ink-dim: #8a92b0;
+  --color-grid: #11162e;
+
+  /* --- Typographies -------------------------------------------- */
+  --font-display: var(--font-unbounded), system-ui, sans-serif;
+  --font-body: var(--font-instrument), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-cherenkov);
+  color: var(--color-void);
+}
+
+/* --- Eyebrow : étiquette mono des sections ---------------------- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-ink-dim);
+}
+
+/* --- Titre display --------------------------------------------- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+/* --- Lueur de texte (utilisée avec parcimonie) ------------------ */
+.glow-cherenkov {
+  text-shadow: 0 0 40px rgba(77, 124, 255, 0.55);
+}
+.glow-fusion {
+  text-shadow: 0 0 60px rgba(245, 233, 200, 0.45);
+}
+
+/* --- Grille de fond subtile ------------------------------------- */
+.bg-blueprint {
+  background-image:
+    linear-gradient(to right, var(--color-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* --- Masque de fondu horizontal (timeline sans fin) -------------- */
+.fade-right {
+  -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
+  mask-image: linear-gradient(to right, black 70%, transparent 100%);
+}
+
+/* --- Barre de saturation (The Wall) ------------------------------ */
+@keyframes pulse-alarm {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+.bar-alarm {
+  animation: pulse-alarm 2.4s ease-in-out infinite;
+}
+
+/* --- Flux d'énergie vertical (Architecture) ----------------------- */
+@keyframes flow-down {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(400%); }
+}
+.energy-flow {
+  animation: flow-down 3.2s linear infinite;
+}
+
+/* --- Accessibilité : mouvement réduit ----------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .bar-alarm,
+  .energy-flow {
+    animation: none;
+  }
+}
